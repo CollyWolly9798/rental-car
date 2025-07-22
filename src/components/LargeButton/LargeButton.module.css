@@ -1,0 +1,17 @@
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: var(--button);
+    border-radius: 12px;
+    width: 276px;
+    height: 44px;
+    line-height: 1.25;
+    color: var(--white);
+    transition: background-color 0.3s ease;
+
+    &:hover,&:focus{
+        background-color: var(--button-hover);
+    }
+}
