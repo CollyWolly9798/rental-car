@@ -25,3 +25,6 @@ dist-ssr
 
 # Prettierrc
 .prettierrc
+
+# Env
+.env
