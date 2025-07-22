@@ -1,0 +1,22 @@
+.header {
+    background-color: var(--badges);
+    padding: 24px 0;
+    border-bottom: 1px solid var(--badges);
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list {
+    display: flex;
+    column-gap: 32px;
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+.active {
+    color: var(--button-hover);
+}

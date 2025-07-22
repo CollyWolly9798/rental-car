@@ -35,6 +35,12 @@ a {
     text-decoration: none;
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 button {
     font-size: inherit;
     cursor: pointer;
@@ -54,4 +60,11 @@ img {
     display: block;
     max-width: 100%;
     height: auto;
+}
+
+.container {
+    max-width: 1200px;
+    padding-inline: 16px;
+    margin-inline: auto;
+    width: 100%;
 }
