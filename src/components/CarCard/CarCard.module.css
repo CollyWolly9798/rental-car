@@ -1,0 +1,44 @@
+.card{
+    max-width: 276px;
+}
+
+.img{
+    object-fit: cover;
+    object-position: center;
+    height: 268px;
+    border-radius: 14px;
+    margin-bottom: 16px;
+}
+
+.carWrapper{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
+
+.model{
+    color: var(--button);
+}
+
+.carInfo{
+    color: var(--gray);
+    align-items: center;
+    row-gap: 4px;
+    margin-bottom: 28px;
+    font-size: 12px;
+    line-height: 1.33;
+
+    .topInfo{
+        margin-bottom: 4px;
+    }
+
+    span:not(:last-child)::after {
+        content: '';
+        border-right:1px solid ;
+        margin:0 6px;
+    }
+
+
+}
