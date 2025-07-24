@@ -12,12 +12,13 @@ export default function CarsList() {
   const cars = useSelector((state) => state.cars.cars);
   const currentPage = useSelector((state) => state.cars.currentPage);
   const totalPages = useSelector((state) => state.cars.totalPages);
+  const filters = useSelector((state) => state.filters);
 
   useEffect(() => {
     if (cars.length === 0 && currentPage === 1) {
-      dispatch(fetchCars({ page: 1 }));
+      dispatch(fetchCars({ ...filters, page: 1 }));
     }
-  }, [dispatch]);
+  }, [dispatch, filters]);
 
   const handleLoadMore = () => {
     if (currentPage < totalPages && !isLoading) {

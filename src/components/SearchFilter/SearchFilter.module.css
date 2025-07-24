@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    column-gap: 16px;
+    max-width: 924px;
+    margin: 0 auto;
+    padding-top: 84px;
+    padding-bottom: 56px;
+    align-items: flex-end;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper select {
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 12px;
+    background-color: var(--inputs);
+}
+
+.wrapper select option {
+    color: var(--gray);
+    background-color: var(--white);
+}
+
+.label {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.33;
+    color: var(--gray);
+    margin-bottom: 8px;
+}
+
+.mileageContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--inputs);
+    border-radius: 12px;
+}
+
+.inputWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.placeholder {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 500;
+    color: var(--main);
+    pointer-events: none;
+}
+
+.from, .to {
+    height: 44px;
+    width: 100%;
+}
+
+.from {
+    padding-left: 60px;
+    border-right: 1px solid var(--gray-light);
+}
+
+.to {
+    padding-left: 40px;
+    border-left: none;
+    border-radius: 0 12px 12px 0;
+}
+

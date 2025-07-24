@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchCars } from './operations.js';
 
-const slice = createSlice({
+const carsSlice = createSlice({
   name: 'cars',
   initialState: {
     cars: [],
@@ -14,6 +14,10 @@ const slice = createSlice({
   reducers: {
     clearCars(state) {
       state.cars = [];
+      state.totalCars = 0;
+      state.totalPages = 0;
+      state.currentPage = 1;
+      state.error = null;
     },
   },
   extraReducers: (builder) => {
@@ -44,5 +48,5 @@ const slice = createSlice({
   },
 });
 
-export const { clearCars } = slice.actions;
-export default slice.reducer;
+export const { clearCars } = carsSlice.actions;
+export default carsSlice.reducer;
