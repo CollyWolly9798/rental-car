@@ -2,8 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import CarCard from '../CarCard/CarCard.jsx';
 import { useEffect } from 'react';
 import { fetchCars } from '../../redux/cars/operations.js';
-import styles from './CarsList.module.css';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn.jsx';
+import Loader from '../Loader/Loader.jsx';
+
+import styles from './CarsList.module.css';
 
 export default function CarsList() {
   const dispatch = useDispatch();
@@ -28,7 +30,7 @@ export default function CarsList() {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader />}
       <ul className={styles.list}>
         {cars.map((car) => (
           <li key={car.id} className={styles.item}>

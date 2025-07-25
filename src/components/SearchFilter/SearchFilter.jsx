@@ -1,16 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from '../../redux/filters/slice.js';
 import { useEffect } from 'react';
+import { setFilter } from '../../redux/filters/slice.js';
 import { fetchBrands } from '../../redux/filters/operations.js';
 import { clearCars } from '../../redux/cars/slice.js';
 import { fetchCars } from '../../redux/cars/operations.js';
+import LargeButton from '../LargeButton/LargeButton.jsx';
+import Loader from '../Loader/Loader.jsx';
 
 import styles from './SearchFilter.module.css';
-import LargeButton from '../LargeButton/LargeButton.jsx';
 
 export default function SearchFilter() {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
+  const isLoading = useSelector((state) => state.cars.loading);
 
   useEffect(() => {
     dispatch(fetchBrands());
@@ -33,6 +35,14 @@ export default function SearchFilter() {
     );
   };
 
+  const price = [30, 40, 50, 60, 70, 80];
+
+  const handlePriceChange = (e) => {
+    handleFilterChange('rentalPrice', e.target.value);
+  };
+
+  if (isLoading) return <Loader />;
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -44,7 +54,9 @@ export default function SearchFilter() {
           value={filters.brand}
           onChange={(e) => handleFilterChange('brand', e.target.value)}
         >
-          <option value="">Choose a brand</option>
+          <option value="" disabled hidden>
+            Choose a brand
+          </option>
           {filters.brands.map((brand, index) => (
             <option key={index} value={brand}>
               {brand}
@@ -61,14 +73,16 @@ export default function SearchFilter() {
           name="price"
           className={styles.select}
           value={filters.rentalPrice}
-          onChange={(e) => handleFilterChange('rentalPrice', e.target.value)}
+          onChange={handlePriceChange}
         >
-          <option value="">Choose a price</option>
-          <option value="30">$30</option>
-          <option value="40">$40</option>
-          <option value="50">$50</option>
-          <option value="60">$60</option>
-          <option value="70">$70</option>
+          <option value="" disabled hidden>
+            Choose a price
+          </option>
+          {price.map((price) => (
+            <option key={price} value={price}>
+              ${price}
+            </option>
+          ))}
         </select>
       </div>
 

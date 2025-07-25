@@ -4,11 +4,12 @@ import HomePage from './pages/HomePage/HomePage.jsx';
 import CatalogPage from './pages/CatalogPage/CatalogPage.jsx';
 import CarViewPage from './pages/CarViewPage/CarViewPage.jsx';
 import Layout from './components/Layout/Layout.jsx';
+import Loader from './components/Loader/Loader.jsx';
 import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
