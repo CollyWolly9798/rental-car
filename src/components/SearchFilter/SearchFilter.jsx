@@ -36,7 +36,7 @@ export default function SearchFilter() {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <label className={styles.label} for="brand">
+        <label className={styles.label} htmlFor="brand">
           Car brand
         </label>
         <select
@@ -54,7 +54,7 @@ export default function SearchFilter() {
       </div>
 
       <div className={styles.wrapper}>
-        <label className={styles.label} for="price">
+        <label className={styles.label} htmlFor="price">
           Price/ 1 hour
         </label>
         <select
@@ -73,7 +73,7 @@ export default function SearchFilter() {
       </div>
 
       <div className={styles.wrapper}>
-        <label className={styles.label} for="mileage">
+        <label className={styles.label} htmlFor="mileage">
           Сar mileage / km
         </label>
         <div className={styles.mileageContainer}>

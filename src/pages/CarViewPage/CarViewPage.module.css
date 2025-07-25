@@ -1,0 +1,22 @@
+.contentContainer{
+    display: flex;
+    column-gap: 72px;
+    padding-top: 84px;
+}
+
+.image{
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    max-width: 640px;
+}
+
+.image img{
+    object-fit: cover;
+    object-position: center;
+    border-radius: 19px;
+}
+
+.infoWrapper{
+    padding-top: 20px;
+}

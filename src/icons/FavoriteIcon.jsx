@@ -1,4 +1,4 @@
-const Favorite = ({ isActive, ...props }) => {
+const FavoriteIcon = ({ isActive, ...props }) => {
   return (
     <svg
       width="16"
@@ -26,4 +26,4 @@ const Favorite = ({ isActive, ...props }) => {
   );
 };
 
-export default Favorite;
+export default FavoriteIcon;

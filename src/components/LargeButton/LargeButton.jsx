@@ -1,10 +1,10 @@
 import styles from './LargeButton.module.css';
 
-export default function LargeButton({ text, onClick }) {
+export default function LargeButton({ text, type = 'button', onClick }) {
   return (
     <button
       className={styles.btn}
-      type="button"
+      type={type}
       onClick={onClick ? onClick : undefined}
     >
       {text}

@@ -1,10 +1,15 @@
-import styles from './CarCard.module.css';
 import LargeButton from '../LargeButton/LargeButton.jsx';
-import Favorite from '../../../public/icons/Favorite.jsx';
+import FavoriteIcon from '../../icons/FavoriteIcon.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavorites } from '../../redux/favorites/slice.js';
+import { Link } from 'react-router-dom';
+import { formatMileage, getCityAndCountry } from '../../utils/formatters.js';
+
+import styles from './CarCard.module.css';
 
 export default function CarCard({ car }) {
+  const { city, country } = getCityAndCountry(car.address);
+
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites);
 
@@ -18,7 +23,7 @@ export default function CarCard({ car }) {
     <div className={styles.card}>
       <div className={styles.imgWrapper}>
         <button className={styles.icon} onClick={handleFavoriteClick}>
-          <Favorite isActive={isFavorite} />
+          <FavoriteIcon isActive={isFavorite} />
         </button>
         <img src={car.img} alt={car.model} className={styles.img} />
       </div>
@@ -33,20 +38,20 @@ export default function CarCard({ car }) {
 
       <div className={styles.carInfo}>
         <div className={styles.topInfo}>
-          <span>{car.address.split(', ')[1]}</span>
-          <span>{car.address.split(', ')[2]}</span>
+          <span>{city}</span>
+          <span>{country}</span>
           <span>{car.rentalCompany}</span>
         </div>
 
         <div>
           <span>{car.type}</span>
-          <span>
-            {car.mileage.toLocaleString('en-US').replace(/,/g, ' ')} km
-          </span>
+          <span>{formatMileage(car.mileage)} km</span>
         </div>
       </div>
 
-      <LargeButton text="Read more" />
+      <Link to={`/catalog/${car.id}`}>
+        <LargeButton text="Read more" />
+      </Link>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCars } from './operations.js';
+import { fetchCars, fetchCarsDetails } from './operations.js';
 
 const carsSlice = createSlice({
   name: 'cars',
@@ -10,6 +10,10 @@ const carsSlice = createSlice({
     totalCars: 0,
     totalPages: 0,
     currentPage: 1,
+
+    selectedCar: null,
+    carDetailsLoading: false,
+    carDetailsError: null,
   },
   reducers: {
     clearCars(state) {
@@ -18,6 +22,10 @@ const carsSlice = createSlice({
       state.totalPages = 0;
       state.currentPage = 1;
       state.error = null;
+    },
+    clearCarsSelected(state) {
+      state.selectedCar = null;
+      state.carDetailsError = null;
     },
   },
   extraReducers: (builder) => {
@@ -44,9 +52,21 @@ const carsSlice = createSlice({
       .addCase(fetchCars.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || action.error.message;
+      })
+      .addCase(fetchCarsDetails.pending, (state) => {
+        state.carDetailsLoading = true;
+        state.carDetailsError = null;
+      })
+      .addCase(fetchCarsDetails.fulfilled, (state, action) => {
+        state.carDetailsLoading = false;
+        state.selectedCar = action.payload;
+      })
+      .addCase(fetchCarsDetails.rejected, (state, action) => {
+        state.carDetailsLoading = false;
+        state.carDetailsError = action.payload || action.error.message;
       });
   },
 });
 
-export const { clearCars } = carsSlice.actions;
+export const { clearCars, clearCarsSelected } = carsSlice.actions;
 export default carsSlice.reducer;

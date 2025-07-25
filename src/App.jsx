@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage/HomePage.jsx';
 import CatalogPage from './pages/CatalogPage/CatalogPage.jsx';
 import CarViewPage from './pages/CarViewPage/CarViewPage.jsx';
 import Layout from './components/Layout/Layout.jsx';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -11,10 +12,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/catalog/:id" element={<CarViewPage />} />
+          <Route path="catalog" element={<CatalogPage />} />
+          <Route path="catalog/:id" element={<CarViewPage />} />
         </Route>
       </Routes>
+      <ToastContainer position="top-center" autoClose={3000} />
     </Suspense>
   );
 }
