@@ -1,4 +1,4 @@
-# 🚗 Car Rental Catalog
+# 🚗 Car Rental
 
 React application for browsing, filtering, and managing favorite cars for rent.
 
@@ -20,6 +20,6 @@ React application for browsing, filtering, and managing favorite cars for rent.
 ```bash
 
 git clone https://github.com/CollyWolly9798/rental-car.git
-cd car-rental-catalog
+cd car-rental
 npm install
 npm run dev
