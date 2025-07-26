@@ -19,6 +19,7 @@ export default function BookForm() {
       <p className={styles.text}>
         Stay connected! We are always ready to help you.
       </p>
+
       <Formik
         initialValues={{ name: '', email: '', date: '', comment: '' }}
         validationSchema={validationSchema}
@@ -35,6 +36,7 @@ export default function BookForm() {
               </label>
               <Field className={styles.field} type="text" name="name" />
             </div>
+
             <ErrorMessage
               className={styles.error}
               name="name"
@@ -55,12 +57,17 @@ export default function BookForm() {
             />
 
             <div className={styles.fieldWrapper}>
-              <label className={styles.date}>Booking date</label>
+              <label htmlFor="date" className={styles.date}>
+                Booking date
+              </label>
               <Field className={styles.fieldDate} type="date" name="date" />
             </div>
 
             <div className={styles.fieldWrapper}>
-              <label className={styles.label}>Comment</label>
+              <label htmlFor="comment" className={styles.label}>
+                Comment
+              </label>
+
               <Field
                 className={styles.fieldText}
                 as="textarea"

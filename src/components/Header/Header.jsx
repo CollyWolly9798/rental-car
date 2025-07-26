@@ -1,7 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
 import Logo from '../Logo/Logo.jsx';
-import styles from './Header.module.css';
 import { clsx } from 'clsx';
+
+import styles from './Header.module.css';
 
 export default function Header() {
   const getLinkStyles = ({ isActive }) => {

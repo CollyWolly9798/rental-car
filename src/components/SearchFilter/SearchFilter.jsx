@@ -5,14 +5,12 @@ import { fetchBrands } from '../../redux/filters/operations.js';
 import { clearCars } from '../../redux/cars/slice.js';
 import { fetchCars } from '../../redux/cars/operations.js';
 import LargeButton from '../LargeButton/LargeButton.jsx';
-import Loader from '../Loader/Loader.jsx';
 
 import styles from './SearchFilter.module.css';
 
 export default function SearchFilter() {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
-  const isLoading = useSelector((state) => state.cars.loading);
 
   useEffect(() => {
     dispatch(fetchBrands());
@@ -41,8 +39,6 @@ export default function SearchFilter() {
     handleFilterChange('rentalPrice', e.target.value);
   };
 
-  if (isLoading) return <Loader />;
-
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -50,6 +46,7 @@ export default function SearchFilter() {
           Car brand
         </label>
         <select
+          id="brand"
           name="brand"
           value={filters.brand}
           onChange={(e) => handleFilterChange('brand', e.target.value)}
@@ -70,8 +67,8 @@ export default function SearchFilter() {
           Price/ 1 hour
         </label>
         <select
+          id="price"
           name="price"
-          className={styles.select}
           value={filters.rentalPrice}
           onChange={handlePriceChange}
         >
@@ -94,6 +91,7 @@ export default function SearchFilter() {
           <div className={styles.inputWrapper}>
             <span className={styles.placeholder}>From</span>
             <input
+              id="mileage"
               className={styles.from}
               name="mileage"
               type="number"

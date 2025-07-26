@@ -31,6 +31,12 @@
     margin-bottom: 8px;
 }
 
+.brandCar{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .model{
     color: var(--button);
 }

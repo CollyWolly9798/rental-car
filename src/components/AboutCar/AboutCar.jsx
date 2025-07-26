@@ -34,6 +34,7 @@ export default function AboutCar({ car }) {
           {car.brand} {car.model}, {car.year}
           <span className={styles.span}>Id: {idImage}</span>
         </h2>
+
         <div className={styles.location}>
           <p className={styles.iconWrapper}>
             <LocationIcon />
@@ -43,6 +44,7 @@ export default function AboutCar({ car }) {
             Mileage: {formatMileage(car.mileage)} km
           </p>
         </div>
+
         <p className={styles.price}>${car.rentalPrice}</p>
         <p className={styles.desc}>{car.description}</p>
       </div>

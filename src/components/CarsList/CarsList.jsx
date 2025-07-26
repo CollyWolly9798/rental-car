@@ -10,10 +10,9 @@ import styles from './CarsList.module.css';
 export default function CarsList() {
   const dispatch = useDispatch();
 
-  const isLoading = useSelector((state) => state.cars.loading);
-  const cars = useSelector((state) => state.cars.cars);
-  const currentPage = useSelector((state) => state.cars.currentPage);
-  const totalPages = useSelector((state) => state.cars.totalPages);
+  const { loading, cars, currentPage, totalPages } = useSelector(
+    (state) => state.cars
+  );
   const filters = useSelector((state) => state.filters);
 
   useEffect(() => {
@@ -23,14 +22,15 @@ export default function CarsList() {
   }, [dispatch, filters]);
 
   const handleLoadMore = () => {
-    if (currentPage < totalPages && !isLoading) {
+    if (currentPage < totalPages && !loading) {
       dispatch(fetchCars({ page: currentPage + 1 }));
     }
   };
 
   return (
     <>
-      {isLoading && <Loader />}
+      {loading && <Loader />}
+      {!loading && cars.length === 0 && <p>Cars not available</p>}
       <ul className={styles.list}>
         {cars.map((car) => (
           <li key={car.id} className={styles.item}>
@@ -38,7 +38,7 @@ export default function CarsList() {
           </li>
         ))}
       </ul>
-      {currentPage < totalPages && !isLoading && (
+      {currentPage < totalPages && !loading && (
         <LoadMoreBtn onLoad={handleLoadMore} />
       )}
     </>

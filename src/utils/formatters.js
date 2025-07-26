@@ -13,3 +13,7 @@ export const idFromImg = (url) => {
   const match = url.match(/\/(\d{4})-ai\.jpg$/);
   return match ? match[1] : null;
 };
+
+export const formatNumber = (val) => {
+  return val ? Number(val).toLocaleString('en-US') : '';
+};
